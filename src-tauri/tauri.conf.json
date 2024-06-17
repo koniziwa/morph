@@ -12,7 +12,24 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "path": {
+        "all": true
+      },
+      "fs": {
+        "scope": ["$DOCUMENT/**", "$DOCUMENT/MorphData/userdata/*"],
+        "exists": true,
+        "createDir": true,
+        "readFile": true,
+        "writeFile": true
+      },
+      "protocol": {
+        "asset": true,
+        "assetScope": [
+          "$DOCUMENT/MorphData/thumbnails/*",
+          "$DOCUMENT/MorphData/backgrounds/*",
+          "$DOCUMENT/MorphData/avatars/*"
+        ]
+      }
     },
     "bundle": {
       "active": true,
@@ -48,7 +65,7 @@
       }
     },
     "security": {
-      "csp": null
+      "csp": "default-src 'self'; img-src 'self' asset: https://asset.localhost"
     },
     "updater": {
       "active": false

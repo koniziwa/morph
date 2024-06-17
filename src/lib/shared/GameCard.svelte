@@ -2,8 +2,9 @@
   import { activeGame } from '../../store.ts'
   import type { GameObject } from '$lib/widgets/types/GameObject.ts'
 
-  export let size = 48
+  export let size: number
   export let game: GameObject
+  let active = true
 
   const handleClick = () => {
     activeGame.set(game)
